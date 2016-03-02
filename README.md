@@ -25,4 +25,3 @@ If a new version is released, you have to update the `iso_checksum`. ```md5sum r
 ```
 make md5-iso
 ```
-# rancheros-openstack
