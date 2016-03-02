@@ -4,7 +4,6 @@ This repo gets you going with RancherOS on OpenStack.
 
 ## Build
 ```
-wget https://releases.rancher.com/os/latest/rancheros.iso
 packer build packer-rancher.json
 ```
 

@@ -3,7 +3,7 @@
   [
     {
       "type": "qemu",
-      "iso_url": "rancheros.iso",
+      "iso_url": "https://releases.rancher.com/os/latest/rancheros.iso.iso",
       "iso_checksum_type": "md5",
       "iso_checksum": "872bc85657a9a6e4e438fec7e5234a22",
       "output_directory": "output_rancheros",
