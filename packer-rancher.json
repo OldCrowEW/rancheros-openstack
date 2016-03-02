@@ -1,0 +1,42 @@
+{
+  "builders":
+  [
+    {
+      "type": "qemu",
+      "iso_url": "rancheros.iso",
+      "iso_checksum_type": "md5",
+      "iso_checksum": "872bc85657a9a6e4e438fec7e5234a22",
+      "output_directory": "output_rancheros",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "sudo shutdown -h now",
+      "disk_size": 1024,
+      "format": "qcow2",
+      "headless": true,
+      "accelerator": "kvm",
+      "ssh_username": "rancher",
+      "ssh_password": "rancher",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "90m",
+      "vm_name": "rancheros",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio",
+      "boot_wait": "5s",
+      "qemuargs": [
+        [ "-m", "1024M" ]
+      ]
+    }
+  ],
+  "provisioners": [
+  {
+     "type": "file",
+     "source": "cloud_config.yml",
+     "destination": "/home/rancher/cloud_config.yml"
+   },
+  {
+    "type": "shell",
+    "inline": [
+      "sleep 5",
+      "sudo ros install -f -c cloud_config.yml -d /dev/vda -no-reboot"
+    ]
+  }]
+}

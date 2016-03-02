@@ -1,0 +1,6 @@
+#cloud-config
+rancher:
+  services_include:
+    debian-console: true
+ssh_authorized_keys:
+  - ADD KEY HERE
