@@ -18,10 +18,12 @@ Packer will create a qcow2 type image in `output_rancher` dir. You can import it
   --file output_rancher/rancheros
 ```
 
+## Usage
+We hard code an insecure key to our cloud_config.yml file so we can ssh into the instance. **You should replace these keys before building image**
+```
+ssh -i insecure_keys/id_rsa_rancheros rancher@{{ instance_ip }}
+```
+
 ## Upgrade ISO checksum
 
 If a new version is released, you have to update the `iso_checksum`. ```md5sum rancheros.iso``` is your friend
-
-```
-make md5-iso
-```
