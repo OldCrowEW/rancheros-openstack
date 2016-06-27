@@ -3,9 +3,9 @@
   [
     {
       "type": "qemu",
-      "iso_url": "https://releases.rancher.com/os/latest/rancheros.iso.iso",
+      "iso_url": "https://releases.rancher.com/os/latest/rancheros.iso",
       "iso_checksum_type": "md5",
-      "iso_checksum": "872bc85657a9a6e4e438fec7e5234a22",
+      "iso_checksum": "b2fbb5edc5f97aa16d22fe2ca3a23028",
       "output_directory": "output_rancheros",
       "ssh_wait_timeout": "30s",
       "shutdown_command": "sudo shutdown -h now",
