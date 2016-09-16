@@ -1,11 +1,7 @@
 #cloud-config
 rancher:
+  resize_device: /dev/vda
   services_include:
     debian-console: true
-  services:
-      update_filesystem_size:
-        image: ubuntu
-        privileged: true
-        command: bash -c 'eval "apt-get update && apt-get install -y cloud-guest-utils parted && growpart /dev/vda 1 && partprobe && resize2fs /dev/vda1"'
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDD12Aimv6R/5DTaa0gYLlAE3Tc5jxOcjUcL7O7tbaW6CPoMPvc4IbaoUm3MmWRr607Ma75DL47n7XcPnn+7rDbxcxVepn/b9XFyUyXbG3WXKfDBwrkMpjKGsn0ZMh++Jm5p17jk4RN/W6a6F3WUl/nfOGOrmq7lgfncjve4NjaEojaqKQHR84cTN8msC27bBmUOMQ6OUvRemrKcclZg0AtyTqXG8sIam+imqNGbK9tRh7twXLDn6ithOQrdmwVXbBeDd+vLidztKm1xa3QQDKTbBIuajjEzW+rTX3GOWT6NfC7a5kSkH7gpEc42Uy4kGgyDf4drsEDEDcWPFBJwNVmYYGOjrlGlQxRNOD6XPw/YSiHZwbOLyntNFpwSw88Qg/S9UgUVmn+BBe9lPqAaqvA3yphrrB8nbxz1DCbJgsRsVEvOWBFv5Cjf+juOeUue80VH8f0LcQ3IWmIFE2fGHAHQ57Ot3hIewdSm8OWjzbiu/8DEAHCZPljDfHaNeY9498EjIl64BnOwpklKKNJXYb7ZJWI3osWT+8UQb4c33c1GHX6oEEc3TN2Kf5POz+gOBQFK/42MNrpgdQR7Ktx8PwAGsSw6dPxMvzqi84p8MaBbDwuQqf7Z3CcJKfS7OweYhCZKg9JopYpm2PBlDar3NdnFs5Jil1CEQnvtlndMOsguQ== rancher.local
