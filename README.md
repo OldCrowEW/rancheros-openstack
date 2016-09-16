@@ -2,6 +2,18 @@ This repo gets you going with RancherOS on OpenStack.
 
 [Packer](http://packer.io) is used with the qemu builder to create the image which can be imported to glance. It's expected all of these requirements are in place beforehand.
 
+## Hacks in place:
+Rancher has removed the default username/password for what appears to be security reasons. https://github.com/rancher/os/issues/1198 Until a better solution is in place we must set a password at boot by doing the following:
+```
+"qemuargs": [
+        ["-m", "1024M"],
+        ["-kernel", "/mnt/boot/vmlinuz"],
+        ["-initrd", "/mnt/boot/initrd"],
+        ["-append", "quiet rancher.autologin=tty1 rancher.autologin=ttyS0 rancher.password=rancher"]
+      ]
+```
+Qemu requires -kernel -initrd when using -append. Update the paths for correct location of kernel and initrd. 
+
 ## Build
 ```
 packer build packer-rancher.json
